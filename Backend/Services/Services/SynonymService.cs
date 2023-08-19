@@ -1,5 +1,4 @@
 ﻿using Services.Interfaces;
-using Services.Repositories;
 using Shared.Models;
 
 namespace Services.Services;
@@ -18,7 +17,7 @@ internal class SynonymService : ISynonymService
     /// </summary>
     /// <param name="word">value of a word</param>
     /// <returns>collection of synonyms to a word</returns>
-    public ICollection<Word> GetSynonyms(string word)
+    public ICollection<WordModel> GetSynonyms(string word)
     {
         return _synonymRepository.GetSynonyms(word);
     }
@@ -33,7 +32,7 @@ internal class SynonymService : ISynonymService
         _synonymRepository.InsertWord(newWord, synonym);
     }
 
-    public ICollection<Word> GetAllWords()
+    public ICollection<WordModel> GetAllWords()
     {
         return _synonymRepository.GetAllWords();
     }

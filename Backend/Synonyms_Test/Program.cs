@@ -12,11 +12,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(x =>
 {
-    x.CreateMap<Word, GetSynonymsResponseDto>();
-    x.CreateMap<Word, GetAllWordsResponseDto>();
+    x.CreateMap<WordModel, GetSynonymsResponseDto>();
+    x.CreateMap<WordModel, GetAllWordsResponseDto>();
 });
-IoC.AddServices(builder.Services);
 
+//Add services
+IoC.AddServices(builder.Services);
 
 var app = builder.Build();
 
@@ -27,11 +28,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
-
 app.UseHttpsRedirection();
-
-
 app.MapControllers();
-
 app.Run();

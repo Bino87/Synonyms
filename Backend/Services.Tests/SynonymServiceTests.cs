@@ -1,6 +1,5 @@
 using NSubstitute;
 using Services.Interfaces;
-using Services.Repositories;
 using Services.Services;
 using Shared.Models;
 
@@ -35,9 +34,9 @@ public class SynonymServiceTests
     public void WhenCalling_GetSynonyms_ItPassesDataToSynonymRepository_And_ReturnsSynonymListFromThisRepository()
     {
         //Arrange
-        ICollection<Word> words = new[]
+        ICollection<WordModel> words = new[]
         {
-            new Word()
+            new WordModel()
             {
                 Value = Synonym
             }
@@ -57,12 +56,12 @@ public class SynonymServiceTests
     public void GetAllWords_ReturnsValuesOfSynonymRepository()
     {
         //Arrange
-        ICollection<Word> words = new List<Word>()
+        ICollection<WordModel> words = new List<WordModel>()
         {
             new()
             {
                 Value = Word,
-                Id = 1
+                Id = Guid.NewGuid()
             }
         };
         _synonymRepository.GetAllWords().Returns(words);

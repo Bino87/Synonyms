@@ -1,5 +1,4 @@
-﻿
-namespace Shared.Dto;
+﻿namespace Shared.Dto;
 
 public  class GetSynonymsResponseDto
 {

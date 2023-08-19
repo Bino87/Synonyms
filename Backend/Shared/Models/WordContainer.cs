@@ -2,6 +2,6 @@
 
 public class WordContainer
 {
-    public Word Word { get; set; } = null!;
-    public HashSet<int> SynonymmsId { get; set; } = null!;
+    public WordModel WordModel { get; set; } = null!;
+    public HashSet<Guid> SynonymIds { get; set; } = null!;
 }

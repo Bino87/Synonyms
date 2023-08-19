@@ -14,7 +14,5 @@ public static class IoC
         //Transient since it doesn't hold any data
         services.AddTransient<ISynonymRepository, SynonymRepository>();
         services.AddTransient<ISynonymService, SynonymService>();
-
-        //Scoped since i want to have exactly one that is shared in a session
     }
 }

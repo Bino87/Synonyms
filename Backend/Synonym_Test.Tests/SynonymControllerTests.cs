@@ -64,11 +64,11 @@ public class SynonymControllerTests
     public void GetSynonyms_Test()
     {
         //Arrange
-        ICollection<Word> synonyms = new List<Word>()
+        ICollection<WordModel> synonyms = new List<WordModel>()
         {
             new()
             {
-                Id = 42,
+                Id = Guid.NewGuid(),
                 Value = Synonym
             }
         };
@@ -235,15 +235,15 @@ public class SynonymControllerTests
     public void GetAllWords_FlowTest()
     {
         //Arrange
-        ICollection<Word> words = new List<Word>()
+        ICollection<WordModel> words = new List<WordModel>()
         {
             new()
             {
-                Id = 1, Value = "b"
+                Id = Guid.NewGuid(), Value = "b"
             },
             new()
             {
-                Id = 2, Value = "a"
+                Id = Guid.NewGuid(), Value = "a"
             },
         };
         ICollection<GetAllWordsResponseDto> getAllWordsResponseDtoCollection = new List<GetAllWordsResponseDto>()
@@ -258,7 +258,7 @@ public class SynonymControllerTests
             },
         };
         _synonymService.GetAllWords().Returns(words);
-        _mapper.Map<ICollection<GetAllWordsResponseDto>>(Arg.Is<IEnumerable<Word>>(x => x.First().Value == "a" && x.Last().Value == "b"))
+        _mapper.Map<ICollection<GetAllWordsResponseDto>>(Arg.Is<IEnumerable<WordModel>>(x => x.First().Value == "a" && x.Last().Value == "b"))
             .Returns(getAllWordsResponseDtoCollection);
         //Act
         var res = _controller.GetAllWords();
@@ -267,7 +267,7 @@ public class SynonymControllerTests
         _synonymService.Received(1)
             .GetAllWords();
         _mapper.Received(1)
-            .Map<ICollection<GetAllWordsResponseDto>>(Arg.Is<IEnumerable<Word>>(x => x.First().Value == "a" && x.Last().Value == "b"));
+            .Map<ICollection<GetAllWordsResponseDto>>(Arg.Is<IEnumerable<WordModel>>(x => x.First().Value == "a" && x.Last().Value == "b"));
 
     }
 

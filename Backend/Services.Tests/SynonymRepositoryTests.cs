@@ -1,7 +1,6 @@
 using NSubstitute;
 using Services.Interfaces;
 using Services.Repositories;
-using Services.Services;
 using Shared.Models;
 
 namespace Services.Tests;
@@ -10,7 +9,7 @@ public class SynonymRepositoryTests
 {
     private const string Synonym = "synonym";
     private const string NewWord = "new word";
-    private const int Id = 42;
+    private static readonly Guid Id = Guid.NewGuid();
 
     private ISynonymRepository _service = null!;
     private ISynonymData _synonymData = null!;
@@ -44,16 +43,16 @@ public class SynonymRepositoryTests
     public void When_WordExists_ButHasNoSynonyms_ReturnsEmptyCollection()
     {
         //Arrange
-        var synonymIds = new HashSet<int> {Id};
-        var word = new Word()
+        var synonymIds = new HashSet<Guid> {Id};
+        var word = new WordModel()
         {
             Id = Id,
             Value = NewWord
         };
         var container = new WordContainer()
         {
-            Word = word,
-            SynonymmsId = synonymIds
+            WordModel = word,
+            SynonymIds = synonymIds
         };
         _synonymData.GetWordsByIds(synonymIds).Returns(new[] { word });
         _synonymData.GetContainer(NewWord).Returns(container);
@@ -72,18 +71,18 @@ public class SynonymRepositoryTests
     public void When_WordExists_ButHasNoSynonyms_ReturnsEmptyCollection1()
     {
         //Arrange
-        var synonymIds = new HashSet<int>(){Id, 2};
-        var word = new Word()
+        var synonymIds = new HashSet<Guid>(){Id};
+        var word = new WordModel()
         {
-            Id = 1,
+            Id = Guid.NewGuid(),
             Value = NewWord
         };
         var container = new WordContainer()
         {
-            Word = word,
-            SynonymmsId = synonymIds
+            WordModel = word,
+            SynonymIds = synonymIds
         };
-        _synonymData.GetWordsByIds(synonymIds).Returns(new[] { word, new Word(){Id = 2, Value = Synonym} });
+        _synonymData.GetWordsByIds(synonymIds).Returns(new[] { word, new WordModel(){Id = Guid.NewGuid(), Value = Synonym} });
         _synonymData.GetContainer(NewWord).Returns(container);
 
         //Act
@@ -151,12 +150,12 @@ public class SynonymRepositoryTests
     public void GetAllWords_ShouldGetWordsFromSynonymData()
     {
         //Arrange
-        ICollection<Word> words = new List<Word>()
+        ICollection<WordModel> words = new List<WordModel>()
         {
             new()
             {
                 Value = NewWord,
-                Id = 1
+                Id = Guid.NewGuid()
             }
         };
         _synonymData.GetAllWords().Returns(words);

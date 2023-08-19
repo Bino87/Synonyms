@@ -5,9 +5,9 @@ namespace Services.Interfaces;
 public interface ISynonymData
 {
     public int WordCount { get;  }
-    ICollection<Word> GetWordsByIds(HashSet<int> synonymsId);
+    ICollection<WordModel> GetWordsByIds(HashSet<Guid> synonymsId);
     bool ContainsWord(string word);
-    void AddContainer(WordContainer newWordContainer);
+    void AddContainer(WordContainer container);
     WordContainer? GetContainer(string word);
-    ICollection<Word> GetAllWords();
+    ICollection<WordModel> GetAllWords();
 }
