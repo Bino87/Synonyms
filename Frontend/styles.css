@@ -1,0 +1,28 @@
+#synonymsContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0074d9;
+    color: white;
+    padding: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #2ecc40;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Synonyms</title>
+   <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   
+
+    <main>
+        <div>
+            <label for="inputText">Enter Text:</label>
+            <input type="text" id="inputText">
+			<button onclick="handleAddWord()">Add Word</button>
+            <button onclick="handleFetchSynonyms()">Get Synonyms</button>
+			<div>
+            	<label for="dropdown">Select Option:</label>
+            	<select id="dropdown"></select>
+        	</div>
+        </div>
+
+        
+
+		<div id="synonymsContainer"></div>
+
+    </main>
+
+    <script src="config.js"></script>
+    <script src="main.js"></script> 
+</body>
+</html>
