@@ -1,0 +1,52 @@
+# Ignore Visual Studio files
+.vscode/
+*.suo
+*.user
+*.sln.docstates
+*.sln.ide
+
+# Ignore build output folders
+bin/
+obj/
+
+# Ignore NuGet packages
+*.nuget.props
+*.nuget.targets
+*.nuget.cache
+
+# Ignore user-specific files
+*.userprefs
+*.userprefs.*.user
+
+# Ignore Resharper files
+_ReSharper*/
+*.resharper
+*.ReSharper
+
+# Ignore Rider files
+.idea/
+*.idea
+
+# Ignore Visual Studio files
+.vs/
+
+# Ignore .NET Core artifacts
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Ignore NUnit random seed files
+*nunit_random_seed.tmp
+
+# Ignore .NET build assets cache
+*.assets.cache
+
+# Ignore .NET project FileListAbsolute.txt
+*.csproj.FileListAbsolute.txt
+
+# Ignore .NET TestStore logs
+/TestStore/
+
+# Ignore Synonyms_Test specific files
+/Synonyms_Test/.vs/
+/Synonyms_Test/obj/
