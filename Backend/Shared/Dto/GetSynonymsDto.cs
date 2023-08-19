@@ -1,6 +1,6 @@
 ﻿namespace Shared.Dto;
 
-public class GetSynonymsDto
+public sealed class GetSynonymsDto
 {
     public string? Value { get; set; }
 }

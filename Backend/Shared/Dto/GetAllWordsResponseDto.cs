@@ -1,6 +1,6 @@
 ﻿namespace Shared.Dto;
 
-public class GetAllWordsResponseDto
+public sealed class GetAllWordsResponseDto
 {
     public string Value { get; set; }
 }

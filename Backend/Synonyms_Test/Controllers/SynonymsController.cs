@@ -7,7 +7,7 @@ namespace Synonyms_Test.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class SynonymController : ControllerBase
+public sealed class SynonymController : ControllerBase
 {
     private readonly ISynonymService _synonymService;
     private readonly IMapper _mapper;

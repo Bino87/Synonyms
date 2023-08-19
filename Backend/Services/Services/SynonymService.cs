@@ -3,7 +3,7 @@ using Shared.Models;
 
 namespace Services.Services;
 
-internal class SynonymService : ISynonymService
+internal sealed class SynonymService : ISynonymService
 {
     private readonly ISynonymRepository _synonymRepository;
 
