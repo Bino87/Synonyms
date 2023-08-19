@@ -59,7 +59,7 @@ public class SynonymServiceTests
         //Arrange
         ICollection<Word> words = new List<Word>()
         {
-            new Word()
+            new()
             {
                 Value = Word,
                 Id = 1

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "m3kLmyvhpPK/R0hcBjUGmaAlggGCgSTSRFMPfrps1Ffm8uoz393zQB/hGQZR63s58nsqtq97rQ3GwYwyi4wIrA==",
+  "dgSpecHash": "/5o9PqgwSyhwccJigP7a5KdIeb85zbGvLhbQX/uoDIqWCEdAlAs0YwBIDcsH/FIBxR0PuzW0yfOAQILDQAWX1w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kamil\\source\\repos\\Synonym_Test.Tests\\Synonym_Test.Tests.csproj",
+  "projectFilePath": "C:\\Synonyms\\Synonyms\\Backend\\Synonym_Test.Tests\\Synonym_Test.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kamil\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Kamil\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

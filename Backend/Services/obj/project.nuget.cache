@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YdrvaHZZ6HbgC0z6ypNuwZL8Im/0DNaWREL9Znl5lLyO0yIY/UaL4excreSLWQ7ba+8yJ+NVV99G7O9i8r67EA==",
+  "dgSpecHash": "PHeCV3qUM5SlGGD91NrZkmhMXUSKtkO86l6+B9WLNlxWzMrC6FhDmdU3DsGbJM75bJtcQMlJmPBh3TLV5N4t+Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kamil\\source\\repos\\Services\\Services.csproj",
+  "projectFilePath": "C:\\Synonyms\\Synonyms\\Backend\\Services\\Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kamil\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512"
   ],

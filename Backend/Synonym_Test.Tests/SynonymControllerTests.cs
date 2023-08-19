@@ -1,9 +1,6 @@
-using System.Diagnostics;
 using System.Reflection;
-using System.Security.Cryptography.Xml;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using NSubstitute;
 using Services.Interfaces;
 using Shared.Dto;
@@ -22,18 +19,16 @@ public class SynonymControllerTests
     private const string AddNewWord = "AddNewWord";
     private const string GetAllWords = "GetAllWords";
     private SynonymController _controller = null!;
-    private ILogger<SynonymController> _logger = null!;
     private ISynonymService _synonymService = null!;
     private IMapper _mapper = null!;
 
     [SetUp]
     public void Setup()
     {
-        _logger = Substitute.For<ILogger<SynonymController>>();
         _synonymService = Substitute.For<ISynonymService>();
         _mapper = Substitute.For<IMapper>();
 
-        _controller = new SynonymController(_logger, _synonymService, _mapper);
+        _controller = new SynonymController(_synonymService, _mapper);
     }
 
     [TestCase]
@@ -49,8 +44,6 @@ public class SynonymControllerTests
         Assert.That(routeAttribute, Is.Not.Null);
         Assert.That(routeAttribute?.Template, Is.EqualTo(ApiController));
     }
-
-  
 
     #region GetSynonyms Tests
     [TestCase]
@@ -93,7 +86,7 @@ public class SynonymControllerTests
         
 
         //Act
-        ActionResult<ICollection<GetSynonymsResponseDto>> res = _controller.GetSynonyms(new GetSynonymsDto()
+        var res = _controller.GetSynonyms(new GetSynonymsDto()
         {
             Value = Word
         });
@@ -244,29 +237,29 @@ public class SynonymControllerTests
         //Arrange
         ICollection<Word> words = new List<Word>()
         {
-            new Word()
+            new()
             {
                 Id = 1, Value = "b"
             },
-            new Word()
+            new()
             {
                 Id = 2, Value = "a"
             },
         };
-        ICollection<GetAllWordsResponseDto> wordsDtos = new List<GetAllWordsResponseDto>()
+        ICollection<GetAllWordsResponseDto> getAllWordsResponseDtoCollection = new List<GetAllWordsResponseDto>()
         {
-            new GetAllWordsResponseDto()
+            new()
             {
                 Value = "a"
             },
-            new GetAllWordsResponseDto()
+            new()
             {
                 Value = "b"
             },
         };
         _synonymService.GetAllWords().Returns(words);
         _mapper.Map<ICollection<GetAllWordsResponseDto>>(Arg.Is<IEnumerable<Word>>(x => x.First().Value == "a" && x.Last().Value == "b"))
-            .Returns(wordsDtos);
+            .Returns(getAllWordsResponseDtoCollection);
         //Act
         var res = _controller.GetAllWords();
 

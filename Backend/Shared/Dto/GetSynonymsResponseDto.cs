@@ -1,8 +1,7 @@
 ﻿
-namespace Shared.Dto
+namespace Shared.Dto;
+
+public  class GetSynonymsResponseDto
 {
-    public  class GetSynonymsResponseDto
-    {
-        public string? Value { get; set; }
-    }
+    public string? Value { get; set; }
 }

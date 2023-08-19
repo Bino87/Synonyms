@@ -1,6 +1,5 @@
 ﻿using Services.Interfaces;
 using Services.Repositories;
-using Shared.ErrorCodes;
 using Shared.Models;
 
 namespace Services.Services;
@@ -73,10 +72,10 @@ internal sealed class SynonymRepository : ISynonymRepository
     private void AddToDataSet(Word newValue, string? synonym)
     {
         //Try get synonym container
-        WordContainer? container = string.IsNullOrWhiteSpace(synonym) ? null : _synonymData.GetContainer(synonym);
+        var container = string.IsNullOrWhiteSpace(synonym) ? null : _synonymData.GetContainer(synonym);
 
         //Create new word container for the new word
-        WordContainer newWordContainer = new WordContainer()
+        var newWordContainer = new WordContainer()
         {
             Word = newValue,
             //check if the container exists, if it doesn't exists that means synonym value is not in the data set ( most likely null )
@@ -90,7 +89,7 @@ internal sealed class SynonymRepository : ISynonymRepository
 
     private Word CreateWord(string newWord)
     {
-        Word newValue = new Word()
+        var newValue = new Word()
         {
             Id = _synonymData.WordCount,
             Value = newWord

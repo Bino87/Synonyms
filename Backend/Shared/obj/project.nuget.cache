@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CCLyR1qmohYnpx7bQ38rkfyF4oJe9Ku9KU05074CxPGRGqGnrNK2eEgLNaXD/X1mtvA76+lHdwjgXvGXmm32+g==",
+  "dgSpecHash": "njPE8/7kZZD8eCVPsw44WYAmq2xqbR3MDX4c42/BR/S8wXDhl2/FI29+SCpUh/gk1TDsC/Ekr8CJjpUJqOnwfQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kamil\\source\\repos\\Shared\\Shared.csproj",
+  "projectFilePath": "C:\\Synonyms\\Synonyms\\Backend\\Shared\\Shared.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -2,7 +2,6 @@ using NSubstitute;
 using Services.Interfaces;
 using Services.Repositories;
 using Services.Services;
-using Shared.ErrorCodes;
 using Shared.Models;
 
 namespace Services.Tests;
@@ -51,7 +50,7 @@ public class SynonymRepositoryTests
             Id = Id,
             Value = NewWord
         };
-        WordContainer container = new WordContainer()
+        var container = new WordContainer()
         {
             Word = word,
             SynonymmsId = synonymIds
@@ -79,7 +78,7 @@ public class SynonymRepositoryTests
             Id = 1,
             Value = NewWord
         };
-        WordContainer container = new WordContainer()
+        var container = new WordContainer()
         {
             Word = word,
             SynonymmsId = synonymIds
@@ -114,7 +113,7 @@ public class SynonymRepositoryTests
     }
 
     [TestCase]
-    public void When_SynonymData_TriesToAddaWordWithVoutSynonym_NewCollectionOfSynonymsIsCreated_AndNoAttemptIsMadeToRetrieveSynonymCollection()
+    public void When_SynonymData_TriesToAddWordWithValidSynonym_NewCollectionOfSynonymsIsCreated_AndNoAttemptIsMadeToRetrieveSynonymCollection()
     {
         //Arrange
         _synonymData.ContainsWord(NewWord).Returns(false);
@@ -128,11 +127,11 @@ public class SynonymRepositoryTests
     }
 
     [TestCase]
-    public void When_SynonymData_TriesToAddaWordWithValidSynonym_CollecionOfThoseSynonymsIsTransferedToThatNewWord()
+    public void When_SynonymData_TriesToAddWordWithValidSynonym_CollectionOfThoseSynonymsIsTransferredToThatNewWord()
     {
         //Arrange
 
-        WordContainer container = new WordContainer();
+        var container = new WordContainer();
         _synonymData.ContainsWord(NewWord).Returns(false);
         _synonymData.GetContainer(Synonym).Returns(container);
 
@@ -154,7 +153,7 @@ public class SynonymRepositoryTests
         //Arrange
         ICollection<Word> words = new List<Word>()
         {
-            new Word()
+            new()
             {
                 Value = NewWord,
                 Id = 1

@@ -1700,11 +1700,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kamil\\source\\repos\\Synonym_Test.Tests\\Synonym_Test.Tests.csproj",
+      "projectUniqueName": "C:\\Synonyms\\Synonyms\\Backend\\Synonym_Test.Tests\\Synonym_Test.Tests.csproj",
       "projectName": "Synonym_Test.Tests",
-      "projectPath": "C:\\Users\\Kamil\\source\\repos\\Synonym_Test.Tests\\Synonym_Test.Tests.csproj",
+      "projectPath": "C:\\Synonyms\\Synonyms\\Backend\\Synonym_Test.Tests\\Synonym_Test.Tests.csproj",
       "packagesPath": "C:\\Users\\Kamil\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kamil\\source\\repos\\Synonym_Test.Tests\\obj\\",
+      "outputPath": "C:\\Synonyms\\Synonyms\\Backend\\Synonym_Test.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1726,14 +1726,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Kamil\\source\\repos\\Services\\Services.csproj": {
-              "projectPath": "C:\\Users\\Kamil\\source\\repos\\Services\\Services.csproj"
+            "C:\\Synonyms\\Synonyms\\Backend\\Services\\Services.csproj": {
+              "projectPath": "C:\\Synonyms\\Synonyms\\Backend\\Services\\Services.csproj"
             },
-            "C:\\Users\\Kamil\\source\\repos\\Shared\\Shared.csproj": {
-              "projectPath": "C:\\Users\\Kamil\\source\\repos\\Shared\\Shared.csproj"
+            "C:\\Synonyms\\Synonyms\\Backend\\Shared\\Shared.csproj": {
+              "projectPath": "C:\\Synonyms\\Synonyms\\Backend\\Shared\\Shared.csproj"
             },
-            "C:\\Users\\Kamil\\source\\repos\\Synonyms_Test\\Synonyms_Test.csproj": {
-              "projectPath": "C:\\Users\\Kamil\\source\\repos\\Synonyms_Test\\Synonyms_Test.csproj"
+            "C:\\Synonyms\\Synonyms\\Backend\\Synonyms_Test\\Synonyms_Test.csproj": {
+              "projectPath": "C:\\Synonyms\\Synonyms\\Backend\\Synonyms_Test\\Synonyms_Test.csproj"
             }
           }
         }
