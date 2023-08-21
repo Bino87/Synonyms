@@ -19,7 +19,7 @@ internal sealed class SynonymService : ISynonymService
     /// <returns>collection of synonyms to a word</returns>
     public ICollection<WordModel> GetSynonyms(string word)
     {
-        return _synonymRepository.GetSynonyms(word);
+        return _synonymRepository.GetSynonyms(NormalzieWords(word));
     }
 
     /// <summary>
@@ -29,11 +29,16 @@ internal sealed class SynonymService : ISynonymService
     /// <param name="synonym">value of a synonym, can be null</param>
     public void AddWordWithSynonym(string newWord, string? synonym)
     {
-        _synonymRepository.InsertWord(newWord, synonym);
+        _synonymRepository.InsertWord(NormalzieWords(newWord), NormalzieWords(synonym));
     }
 
     public ICollection<WordModel> GetAllWords()
     {
         return _synonymRepository.GetAllWords();
+    }
+
+    private string NormalzieWords(string word)
+    {
+        return word.ToLowerInvariant();
     }
 }
