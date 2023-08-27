@@ -12,8 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Services\Services.csproj" />
-    <ProjectReference Include="..\Shared\Shared.csproj" />
+    <ProjectReference Include="..\Synonyms_Test.Core\Synonyms_Test.Core.csproj" />
+    <ProjectReference Include="..\Synonyms_test.Services\Synonyms_Test.Services.csproj" />
+    <ProjectReference Include="..\Synonym_Test.DataTransferObjects\Synonym_Test.DataTransferObjects.csproj" />
+    <ProjectReference Include="..\Synonym_Test.Models\Synonym_Test.Models.csproj" />
   </ItemGroup>
 
 </Project>

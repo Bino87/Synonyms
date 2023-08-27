@@ -18,8 +18,6 @@ C:\Synonyms\Synonyms\Backend\Services\bin\Release\net6.0\Services.deps.json
 C:\Synonyms\Synonyms\Backend\Services\bin\Release\net6.0\Services.dll
 C:\Synonyms\Synonyms\Backend\Services\bin\Release\net6.0\Services.pdb
 C:\Synonyms\Synonyms\Backend\Services\bin\Release\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Synonyms\Synonyms\Backend\Services\bin\Release\net6.0\Shared.dll
-C:\Synonyms\Synonyms\Backend\Services\bin\Release\net6.0\Shared.pdb
 C:\Synonyms\Synonyms\Backend\Services\obj\Release\net6.0\Services.csproj.AssemblyReference.cache
 C:\Synonyms\Synonyms\Backend\Services\obj\Release\net6.0\Services.GeneratedMSBuildEditorConfig.editorconfig
 C:\Synonyms\Synonyms\Backend\Services\obj\Release\net6.0\Services.AssemblyInfoInputs.cache
@@ -30,3 +28,5 @@ C:\Synonyms\Synonyms\Backend\Services\obj\Release\net6.0\Services.dll
 C:\Synonyms\Synonyms\Backend\Services\obj\Release\net6.0\refint\Services.dll
 C:\Synonyms\Synonyms\Backend\Services\obj\Release\net6.0\Services.pdb
 C:\Synonyms\Synonyms\Backend\Services\obj\Release\net6.0\ref\Services.dll
+C:\Synonyms\Synonyms\Backend\Services\bin\Release\net6.0\Synonyms_Test.DataAccess.dll
+C:\Synonyms\Synonyms\Backend\Services\bin\Release\net6.0\Synonyms_Test.DataAccess.pdb

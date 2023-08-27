@@ -1,6 +1,4 @@
-using Services.IoC;
-using Shared.Dto;
-using Shared.Models;
+using Synonyms_Test.StartUp;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,24 +8,23 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddAutoMapper(x =>
-{
-    x.CreateMap<WordModel, GetSynonymsResponseDto>();
-    x.CreateMap<WordModel, GetAllWordsResponseDto>();
-});
 
-//Add services
-IoC.AddServices(builder.Services);
+
+
+Startup.AddServices(builder.Services);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Your API v1");
+    });
 }
 
+app.UseAuthorization();
 app.UseHttpsRedirection();
 app.MapControllers();
 app.Run();

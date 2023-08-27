@@ -102,10 +102,8 @@ C:\Synonyms\Synonyms\Backend\Synonym_Test.Tests\bin\Release\net6.0\zh-Hant\Micro
 C:\Synonyms\Synonyms\Backend\Synonym_Test.Tests\bin\Release\net6.0\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 C:\Synonyms\Synonyms\Backend\Synonym_Test.Tests\bin\Release\net6.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
 C:\Synonyms\Synonyms\Backend\Synonym_Test.Tests\bin\Release\net6.0\Services.dll
-C:\Synonyms\Synonyms\Backend\Synonym_Test.Tests\bin\Release\net6.0\Shared.dll
 C:\Synonyms\Synonyms\Backend\Synonym_Test.Tests\bin\Release\net6.0\Synonyms_Test.dll
 C:\Synonyms\Synonyms\Backend\Synonym_Test.Tests\bin\Release\net6.0\Services.pdb
-C:\Synonyms\Synonyms\Backend\Synonym_Test.Tests\bin\Release\net6.0\Shared.pdb
 C:\Synonyms\Synonyms\Backend\Synonym_Test.Tests\bin\Release\net6.0\Synonyms_Test.pdb
 C:\Synonyms\Synonyms\Backend\Synonym_Test.Tests\obj\Release\net6.0\Synonym_Test.Tests.csproj.AssemblyReference.cache
 C:\Synonyms\Synonyms\Backend\Synonym_Test.Tests\obj\Release\net6.0\Synonym_Test.Tests.GeneratedMSBuildEditorConfig.editorconfig
@@ -118,3 +116,5 @@ C:\Synonyms\Synonyms\Backend\Synonym_Test.Tests\obj\Release\net6.0\refint\Synony
 C:\Synonyms\Synonyms\Backend\Synonym_Test.Tests\obj\Release\net6.0\Synonym_Test.Tests.pdb
 C:\Synonyms\Synonyms\Backend\Synonym_Test.Tests\obj\Release\net6.0\Synonym_Test.Tests.genruntimeconfig.cache
 C:\Synonyms\Synonyms\Backend\Synonym_Test.Tests\obj\Release\net6.0\ref\Synonym_Test.Tests.dll
+C:\Synonyms\Synonyms\Backend\Synonym_Test.Tests\bin\Release\net6.0\Synonyms_Test.DataAccess.dll
+C:\Synonyms\Synonyms\Backend\Synonym_Test.Tests\bin\Release\net6.0\Synonyms_Test.DataAccess.pdb

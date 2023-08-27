@@ -1,68 +1,99 @@
-//Populates dropdown menu with all availible words
 async function populateDropdownWithWords() {   
 
     try {
+		
+		const credentials = `${username}:${password}`;
+		const base64Credentials = btoa(credentials);
 		//Fetch response
-		const response = await fetch(`${apiUrl}${getAllWords}`);
+		const response = await fetch(`${apiUrl}${getAllWords}`, {
+			headers: {
+				Authorization: `Basic ${base64Credentials}`
+			}
+		});
 		if (!response.ok) {
 			console.error('Error fetching words:', response);
 			return;
 		}		
 		//parse response message as json
 		const data = await response.json();
+				
+		if(renderErrorCodes(data.errorCodes))
+		{
+			return;
+		}	
 		
-		// get dropdown menu object
-		const dropdown = document.getElementById('dropdown');
-
-		// Clear existing options
-    	dropdown.innerHTML = '';
-
-		// Add null option as the first option
-    	const nullOption = document.createElement('option');
-    	nullOption.value = '';
-    	nullOption.textContent = 'Select a word...'; // Customize the text as needed
-    	dropdown.appendChild(nullOption);
-
-		// set each word as a dropdown menu item
-		data.forEach(word => {
-			const option = document.createElement('option');
-			option.value = word.value;
-			option.textContent = word.value;
-			dropdown.appendChild(option);
-		});	
-
+			// get dropdown menu object
+			const dropdown = document.getElementById('dropdown');
+	
+			// Clear existing options
+			dropdown.innerHTML = '';
+	
+			// Add null option as the first option
+			const nullOption = document.createElement('option');
+			nullOption.value = '';
+			nullOption.textContent = 'Select a word...'; // Customize the text as needed
+			dropdown.appendChild(nullOption);
+	
+			// set each word as a dropdown menu item
+			data.response.forEach(word => {
+				const option = document.createElement('option');
+				option.value = word.value;
+				option.textContent = word.value;
+				option.dataset.id = word.id;
+				dropdown.appendChild(option);
+			});	
     } catch (error) {
 		
 		console.error('Network error:', error);
-    }
+    } 
   }
 
 //adds new word to the system
 async function handleAddWord() {
 	//get inputText and dropdown objects
 	const newWord = document.getElementById('inputText').value;
-	const synonym = document.getElementById('dropdown').value;
+	const dropdown = document.getElementById('dropdown');
+	const selectedOption = dropdown.options[dropdown.selectedIndex];
+	
+	let synonym;
+	if (selectedOption) {
+        synonym = selectedOption.dataset.id; // Get the id from the data attribute      
+    }    
 
 	//Create add synonym dto request object
 	const addSynonymRequest = {
-		NewWord: newWord,
-		Synonym: synonym
+		Value: newWord,
+		SynonymId: synonym
 	};
 
   try {
+	  
+	const credentials = `${username}:${password}`;
+    const base64Credentials = btoa(credentials);
 	  //fetch response
     const response = await fetch(`${apiUrl}${addNewWord}`, {
       method: 'POST',
       headers: {
+		Authorization: `Basic ${base64Credentials}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(addSynonymRequest)
     });
 
-    if (!response.ok) {
-		console.error('Error adding new word:', response);
+    if (!response.ok) {		
 		return;
     }
+	
+	const data = await response.json();	
+	if(renderErrorCodes(data.errorCodes))
+	{
+		return;
+	}
+	// get dropdown menu object
+	const dropdown = document.getElementById('synonymsContainer');
+	
+	// Clear existing options
+	dropdown.innerHTML = '';
    
   } catch (error) {
 		console.error('Network error:', error);
@@ -81,9 +112,13 @@ async function fetchSynonyms(word) {
 
   try {
 	
+	const credentials = `${username}:${password}`;
+    const base64Credentials = btoa(credentials);
+	
 	const response = await fetch(`${apiUrl}${getSynonyms}`, {
 		method: 'POST',
 		headers: {
+			Authorization: `Basic ${base64Credentials}`,
 			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify(dto)
@@ -92,7 +127,7 @@ async function fetchSynonyms(word) {
     if (!response.ok) {
 		console.error('Error fetching synonyms:', response);
 		return [];
-    }		
+    }	
 	
 	//parse response message from json
     const data = await response.json();		
@@ -105,16 +140,23 @@ async function fetchSynonyms(word) {
 }
 
 //renders a table of synonyms
-function renderTable(synonymsResponse) {
+function renderTable(synonymsResponse) {	
 	
-	const synonyms = synonymsResponse.map(item => item.value);
+	if(renderErrorCodes(synonymsResponse.errorCodes))
+	{
+		return;
+	}
+	
+	const synonyms = synonymsResponse.response;
 	const columns = 4;
 	let tableHtml = '<table><tbody>';
 	
 	for (let i = 0; i < synonyms.length; i += columns) {
 		tableHtml += '<tr>';
-		for (let j = i; j < i + columns && j < synonyms.length; j++) {
-		tableHtml += `<td class="td-profile">${synonyms[j]}</td>`;
+		for (let j = i; j < i + columns && j < synonyms.length; j++) 
+		{	
+			const closenessClass = `closeness${synonyms[j].closeness}`; // Get the appropriate class based on closeness
+      		tableHtml += `<td class="td-profile ${closenessClass}">${synonyms[j].value}</td>`;
 		}
 		tableHtml += '</tr>';
 	}

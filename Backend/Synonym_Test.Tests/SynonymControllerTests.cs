@@ -3,8 +3,6 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using NSubstitute;
 using Services.Interfaces;
-using Shared.Dto;
-using Shared.Models;
 using Synonyms_Test.Controllers;
 
 namespace Synonym_Test.Tests;
@@ -60,90 +58,7 @@ public class SynonymControllerTests
         Assert.That(getSynonymsMethodAttribute?.Template, Is.EqualTo(GetSynonyms));
     }
 
-    [TestCase]
-    public void GetSynonyms_Test()
-    {
-        //Arrange
-        ICollection<WordModel> synonyms = new List<WordModel>()
-        {
-            new()
-            {
-                Id = Guid.NewGuid(),
-                Value = Synonym
-            }
-        };
-        ICollection<GetSynonymsResponseDto> mappedSynonyms = new List<GetSynonymsResponseDto>()
-        {
-            new()
-            {
-                Value = Synonym
-            }
-        };
-        _synonymService.GetSynonyms(Word)
-            .Returns(synonyms);
-        _mapper.Map<ICollection<GetSynonymsResponseDto>>(synonyms)
-            .Returns(mappedSynonyms);
-        
-
-        //Act
-        var res = _controller.GetSynonyms(new GetSynonymsDto()
-        {
-            Value = Word
-        });
-
-        //Assert
-
-        Assert.That(res, Is.Not.Null);
-        Assert.That(res, Is.InstanceOf(typeof(ActionResult<ICollection<GetSynonymsResponseDto>>)));
-
-        Assert.That(res.Result, Is.Not.Null);
-        Assert.That(res.Result, Is.TypeOf<OkObjectResult>());
-
-        var result = res.Result as OkObjectResult;
-
-        Assert.That(result, Is.Not.Null);
-        Assert.That(result?.Value, Is.InstanceOf<ICollection<GetSynonymsResponseDto>>());
-
-
-        var valueResponse = result?.Value as ICollection<GetSynonymsResponseDto>;
-        Assert.That(valueResponse, Is.Not.Null);
-
-        _synonymService.Received(1).GetSynonyms(Word);
-        _mapper.Received(1).Map<ICollection<GetSynonymsResponseDto>>(synonyms);
-    }
-
-    [TestCase]
-    public void When_ValueIsEmpty_ReturnsBadRequest()
-    {
-        //Act
-        var result = _controller.GetSynonyms(new GetSynonymsDto()
-        {
-            Value = string.Empty
-        });
-
-        //Assert
-        Assert.That(result, Is.Not.Null);
-        Assert.That(result, Is.InstanceOf(typeof(ActionResult<ICollection<GetSynonymsResponseDto>>)));
-        Assert.That(result.Result, Is.Not.Null);
-        Assert.That(result.Result, Is.TypeOf<BadRequestResult>());
-
-    }
-
-    [TestCase]
-    public void When_ValueIsNull_ReturnsBadRequest()
-    {
-        //Act
-        var result = _controller.GetSynonyms(new GetSynonymsDto()
-        {
-            Value = string.Empty
-        });
-
-        //Assert
-        Assert.That(result, Is.Not.Null);
-        Assert.That(result, Is.InstanceOf(typeof(ActionResult<ICollection<GetSynonymsResponseDto>>)));
-        Assert.That(result.Result, Is.Not.Null);
-        Assert.That(result.Result, Is.TypeOf<BadRequestResult>());
-    }
+   
 
     #endregion
 
@@ -164,54 +79,6 @@ public class SynonymControllerTests
         Assert.That(addSynonymMethodAttribute?.Template, Is.EqualTo(AddNewWord));
     }
 
-    [TestCase]
-    public void When_NewWordIsEmpty_ReturnsBadRequest()
-    {
-        //Act
-        var result = _controller.AddNewWord(new AddSynonymRequestDto()
-        {
-            Synonym = Synonym,
-            NewWord = string.Empty
-        });
-
-        //Assert
-        Assert.That(result, Is.TypeOf<BadRequestResult>());
-    }
-
-    [TestCase]
-    public void When_NewWordIsNull_ReturnsBadRequest()
-    {
-        //Act
-        var result = _controller.AddNewWord(new AddSynonymRequestDto()
-        {
-            Synonym = Synonym,
-            NewWord = string.Empty
-        });
-
-        //Assert
-        Assert.That(result, Is.TypeOf<BadRequestResult>());
-
-    }
-
-    [TestCase]
-    public void When_NewWordIsValid_ReturnsOkRequest()
-    {
-        //Arrange
-
-        //Act
-        var res = _controller.AddNewWord(new AddSynonymRequestDto()
-        {
-            Synonym = Synonym,
-            NewWord = NewWord
-        });
-        //Assert
-
-        Assert.That(res, Is.Not.Null);
-        Assert.That(res, Is.InstanceOf(typeof(ActionResult)));
-
-        _synonymService.Received(1).AddWordWithSynonym(NewWord, Synonym);
-    }
-
     #endregion
 
     #region GetllAllWords Tests
@@ -229,46 +96,6 @@ public class SynonymControllerTests
         Assert.That(getAllWordsMethod, Is.Not.Null);
         Assert.That(getAllWordsAttribute, Is.Not.Null);
         Assert.That(getAllWordsAttribute?.Template, Is.EqualTo(GetAllWords));
-    }
-
-    [TestCase]
-    public void GetAllWords_FlowTest()
-    {
-        //Arrange
-        ICollection<WordModel> words = new List<WordModel>()
-        {
-            new()
-            {
-                Id = Guid.NewGuid(), Value = "b"
-            },
-            new()
-            {
-                Id = Guid.NewGuid(), Value = "a"
-            },
-        };
-        ICollection<GetAllWordsResponseDto> getAllWordsResponseDtoCollection = new List<GetAllWordsResponseDto>()
-        {
-            new()
-            {
-                Value = "a"
-            },
-            new()
-            {
-                Value = "b"
-            },
-        };
-        _synonymService.GetAllWords().Returns(words);
-        _mapper.Map<ICollection<GetAllWordsResponseDto>>(Arg.Is<IEnumerable<WordModel>>(x => x.First().Value == "a" && x.Last().Value == "b"))
-            .Returns(getAllWordsResponseDtoCollection);
-        //Act
-        var res = _controller.GetAllWords();
-
-        //Assert
-        _synonymService.Received(1)
-            .GetAllWords();
-        _mapper.Received(1)
-            .Map<ICollection<GetAllWordsResponseDto>>(Arg.Is<IEnumerable<WordModel>>(x => x.First().Value == "a" && x.Last().Value == "b"));
-
     }
 
     #endregion

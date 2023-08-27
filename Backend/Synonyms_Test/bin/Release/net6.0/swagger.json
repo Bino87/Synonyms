@@ -25,7 +25,7 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "#/definitions/GetSynonymsDto"
+              "$ref": "#/definitions/GetSynonymsRequestDto"
             }
           }
         ],
@@ -33,10 +33,7 @@
           "200": {
             "description": "Success",
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/GetSynonymsResponseDto"
-              }
+              "$ref": "#/definitions/GetSynonymsResponseDtoICollectionValueResponse"
             }
           }
         }
@@ -52,18 +49,26 @@
           "text/json",
           "application/*+json"
         ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "#/definitions/AddSynonymRequestDto"
+              "$ref": "#/definitions/AddNewWordRequestDto"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
           }
         }
       }
@@ -82,10 +87,7 @@
           "200": {
             "description": "Success",
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/GetAllWordsResponseDto"
-              }
+              "$ref": "#/definitions/GetAllWordsResponseDtoICollectionValueResponse"
             }
           }
         }
@@ -93,26 +95,49 @@
     }
   },
   "definitions": {
-    "AddSynonymRequestDto": {
+    "AddNewWordRequestDto": {
       "type": "object",
       "properties": {
-        "newWord": {
+        "value": {
           "type": "string"
         },
-        "synonym": {
-          "type": "string"
+        "synonymId": {
+          "format": "int32",
+          "type": "integer"
         }
       }
     },
     "GetAllWordsResponseDto": {
       "type": "object",
       "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
         "value": {
           "type": "string"
         }
       }
     },
-    "GetSynonymsDto": {
+    "GetAllWordsResponseDtoICollectionValueResponse": {
+      "type": "object",
+      "properties": {
+        "errorCodes": {
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "response": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetAllWordsResponseDto"
+          }
+        }
+      }
+    },
+    "GetSynonymsRequestDto": {
       "type": "object",
       "properties": {
         "value": {
@@ -125,6 +150,40 @@
       "properties": {
         "value": {
           "type": "string"
+        },
+        "closeness": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "GetSynonymsResponseDtoICollectionValueResponse": {
+      "type": "object",
+      "properties": {
+        "errorCodes": {
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "response": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetSynonymsResponseDto"
+          }
+        }
+      }
+    },
+    "Response": {
+      "type": "object",
+      "properties": {
+        "errorCodes": {
+          "type": "array",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          }
         }
       }
     }

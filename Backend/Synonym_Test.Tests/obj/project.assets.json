@@ -631,38 +631,15 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "Services/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
-          "Shared": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Services.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Services.dll": {}
-        }
-      },
-      "Shared/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/Shared.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Shared.dll": {}
-        }
-      },
       "Synonyms_Test/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
-          "Services": "1.0.0",
-          "Shared": "1.0.0",
-          "Swashbuckle.AspNetCore": "6.2.3"
+          "Swashbuckle.AspNetCore": "6.2.3",
+          "Synonym_Test.DataTransferObjects": "1.0.0",
+          "Synonym_Test.Models": "1.0.0",
+          "Synonyms_Test.Services": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Synonyms_Test.dll": {}
@@ -673,6 +650,53 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Synonyms_Test.DataAccess/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Synonyms_Test.DataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Synonyms_Test.DataAccess.dll": {}
+        }
+      },
+      "Synonyms_Test.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
+          "Synonyms_Test.DataAccess": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Synonyms_Test.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Synonyms_Test.Services.dll": {}
+        }
+      },
+      "Synonym_Test.DataTransferObjects/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Synonym_Test.DataTransferObjects.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Synonym_Test.DataTransferObjects.dll": {}
+        }
+      },
+      "Synonym_Test.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Synonym_Test.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Synonym_Test.Models.dll": {}
+        }
       }
     }
   },
@@ -1664,20 +1688,30 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Services/1.0.0": {
-      "type": "project",
-      "path": "../Services/Services.csproj",
-      "msbuildProject": "../Services/Services.csproj"
-    },
-    "Shared/1.0.0": {
-      "type": "project",
-      "path": "../Shared/Shared.csproj",
-      "msbuildProject": "../Shared/Shared.csproj"
-    },
     "Synonyms_Test/1.0.0": {
       "type": "project",
       "path": "../Synonyms_Test/Synonyms_Test.csproj",
       "msbuildProject": "../Synonyms_Test/Synonyms_Test.csproj"
+    },
+    "Synonyms_Test.DataAccess/1.0.0": {
+      "type": "project",
+      "path": "../Synonyms_Test.DataAccess/Synonyms_Test.DataAccess.csproj",
+      "msbuildProject": "../Synonyms_Test.DataAccess/Synonyms_Test.DataAccess.csproj"
+    },
+    "Synonyms_Test.Services/1.0.0": {
+      "type": "project",
+      "path": "../Synonyms_test.Services/Synonyms_Test.Services.csproj",
+      "msbuildProject": "../Synonyms_test.Services/Synonyms_Test.Services.csproj"
+    },
+    "Synonym_Test.DataTransferObjects/1.0.0": {
+      "type": "project",
+      "path": "../Synonym_Test.DataTransferObjects/Synonym_Test.DataTransferObjects.csproj",
+      "msbuildProject": "../Synonym_Test.DataTransferObjects/Synonym_Test.DataTransferObjects.csproj"
+    },
+    "Synonym_Test.Models/1.0.0": {
+      "type": "project",
+      "path": "../Synonym_Test.Models/Synonym_Test.Models.csproj",
+      "msbuildProject": "../Synonym_Test.Models/Synonym_Test.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1687,8 +1721,6 @@
       "NUnit >= 3.13.3",
       "NUnit.Analyzers >= 3.6.1",
       "NUnit3TestAdapter >= 4.4.2",
-      "Services >= 1.0.0",
-      "Shared >= 1.0.0",
       "Synonyms_Test >= 1.0.0",
       "coverlet.collector >= 3.2.0"
     ]
@@ -1726,12 +1758,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Synonyms\\Synonyms\\Backend\\Services\\Services.csproj": {
-              "projectPath": "C:\\Synonyms\\Synonyms\\Backend\\Services\\Services.csproj"
-            },
-            "C:\\Synonyms\\Synonyms\\Backend\\Shared\\Shared.csproj": {
-              "projectPath": "C:\\Synonyms\\Synonyms\\Backend\\Shared\\Shared.csproj"
-            },
             "C:\\Synonyms\\Synonyms\\Backend\\Synonyms_Test\\Synonyms_Test.csproj": {
               "projectPath": "C:\\Synonyms\\Synonyms\\Backend\\Synonyms_Test\\Synonyms_Test.csproj"
             }
