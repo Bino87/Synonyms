@@ -26,7 +26,7 @@ internal sealed class SynonymService : ISynonymService
         _responseErrorHandler = responseErrorHandler;
     }
 
-    public async Task AddWord(string? word, int? synonym)
+    public async Task AddWordAsync(string? word, int? synonym)
     {
         //Normalize the string (make it lower case and trim white space on both ends)
         word = _wordAdapter.Adapt(word);
@@ -57,7 +57,7 @@ internal sealed class SynonymService : ISynonymService
         await _synonymsRepository.AddWordAsync(word, synonym);
     }
 
-    public async Task<ICollection<Word>> GetAllWords()
+    public async Task<ICollection<Word>> GetAllWordsAsync()
     {
         //Get all words
         return await _synonymsRepository.GetAllWordsAsync();

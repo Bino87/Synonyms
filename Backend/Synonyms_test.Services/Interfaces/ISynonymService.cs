@@ -4,7 +4,7 @@ namespace Synonyms_Test.Services.Interfaces;
 
 public interface ISynonymService
 {
-    Task AddWord(string? word, int? synonym);
-    Task<ICollection<Word>> GetAllWords();
+    Task AddWordAsync(string? word, int? synonym);
+    Task<ICollection<Word>> GetAllWordsAsync();
     Task<ICollection<GraphSearchResults>> GetSynonymsAsync(string? value);
 }

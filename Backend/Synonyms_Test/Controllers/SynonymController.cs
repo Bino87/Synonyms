@@ -16,14 +16,12 @@ public sealed class SynonymController : ControllerBase
     private readonly IMapper _mapper;
     private readonly ISynonymService _synonymService;
     private readonly IResponseFactory _responseFactory;
-    private readonly ILogger<SynonymController> _logger;
     private readonly IEndPointLoggerFactory _endPointLoggerFactory;
-    public SynonymController(IMapper mapper, ISynonymService synonymService, IResponseFactory responseFactory, ILogger<SynonymController> logger, IEndPointLoggerFactory endPointLoggerFactory)
+    public SynonymController(IMapper mapper, ISynonymService synonymService, IResponseFactory responseFactory, IEndPointLoggerFactory endPointLoggerFactory)
     {
         _mapper = mapper;
         _synonymService = synonymService;
         _responseFactory = responseFactory;
-        _logger = logger;
         _endPointLoggerFactory = endPointLoggerFactory;
     }
 
@@ -50,7 +48,7 @@ public sealed class SynonymController : ControllerBase
         using var stuff = _endPointLoggerFactory.CreateEndPointLogger(nameof(AddNewWordAsync));
 
         //Add the word
-        await _synonymService.AddWord(dto.Value, dto.SynonymId);
+        await _synonymService.AddWordAsync(dto.Value, dto.SynonymId);
 
         //create the response
         return Ok(_responseFactory.CreateResponse());
@@ -63,7 +61,7 @@ public sealed class SynonymController : ControllerBase
         using var stuff = _endPointLoggerFactory.CreateEndPointLogger(nameof(GetAllWordsAsync));
 
         //get the results
-        var results = await _synonymService.GetAllWords();
+        var results = await _synonymService.GetAllWordsAsync();
 
         //map the results to response dtos
         var mappedResults = _mapper.Map<ICollection<GetAllWordsResponseDto>>(results);
