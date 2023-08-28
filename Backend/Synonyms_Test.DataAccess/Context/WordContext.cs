@@ -3,7 +3,7 @@ using Synonym_Test.Models;
 
 namespace Synonyms_Test.DataAccess.Context;
 
-internal sealed class WordContext : DbContext
+public  class WordContext : DbContext
 {
     public DbSet<Word> Words => Set<Word>();
 
@@ -23,15 +23,5 @@ internal sealed class WordContext : DbContext
             
             
         base.OnModelCreating(modelBuilder);
-    }
-
-    public override void Dispose()
-    {
-
-#if TEST
-        return;
-
-#endif
-        base.Dispose();
     }
 }

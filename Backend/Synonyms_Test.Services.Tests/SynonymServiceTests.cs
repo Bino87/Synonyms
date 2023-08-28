@@ -7,7 +7,6 @@ using Synonyms_Test.Services.Interfaces;
 using NSubstitute;
 using Synonyms_Test.Core.ErrorHandling;
 using Synonym_Test.Models;
-using Newtonsoft.Json.Linq;
 
 namespace Synonyms_Test.Services.Tests;
 public class SynonymServiceTests
@@ -231,23 +230,24 @@ public class SynonymServiceTests
     [TestCase("ABCDEF", 'D', "CEBFA")]
     [TestCase("ABCDEF", 'E', "DFCBA")]
     [TestCase("ABCDEF", 'F', "EDCBA")]
-    public async Task GetSynonymsAsync_WhenWordIsFound(string words, char character, string expected)
+    public async Task GetSynonymsAsync_WhenWordIsFound_OrderWordsBasedOnCloseness(string words, char character, string expected)
     {
         //Arrange
-        _wordAdapter.Adapt(Word).Returns(Word);
-        _wordValidator.Validate(Word).Returns(true);
-        _synonymsRepository.HasWordAsync(Word).Returns(true);
-        _synonymsRepository.GetWordWithAllSynonymsByValueAsync(Word, Arg.Any<int>()).Returns(CreateWord(words, character));
+        string word = character.ToString();
+        _wordAdapter.Adapt(word).Returns(word);
+        _wordValidator.Validate(word).Returns(true);
+        _synonymsRepository.HasWordAsync(word).Returns(true);
+        _synonymsRepository.GetWordWithAllSynonymsByValueAsync(word, Arg.Any<int>()).Returns(CreateWord(words, character));
 
         //Act
-        ICollection<GraphSearchResults> res = await _service.GetSynonymsAsync(Word);
+        ICollection<GraphSearchResults> res = await _service.GetSynonymsAsync(word);
 
         //Assert
         _settings.Received(1).GetSearchDepthLimit();
-        await _synonymsRepository.Received(1).GetWordWithAllSynonymsByValueAsync(Word, Arg.Any<int>());
-        _wordAdapter.Received(1).Adapt(Word);
-        _wordValidator.Received(1).Validate(Word);
-        await _synonymsRepository.Received(1).HasWordAsync(Word);
+        await _synonymsRepository.Received(1).GetWordWithAllSynonymsByValueAsync(word, Arg.Any<int>());
+        _wordAdapter.Received(1).Adapt(word);
+        _wordValidator.Received(1).Validate(word);
+        await _synonymsRepository.Received(1).HasWordAsync(word);
 
         Assert.That(res.Count, Is.EqualTo(expected.Length));
 
@@ -258,7 +258,6 @@ public class SynonymServiceTests
             Assert.That(array[i].Word, Is.EqualTo(expected[i].ToString()));
         }
     }
-
 
     private static Word CreateWord(string value, char selectedWord)
     {
