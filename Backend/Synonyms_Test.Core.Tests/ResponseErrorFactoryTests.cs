@@ -5,7 +5,6 @@ namespace Synonyms_Test.Core.Tests;
 
 public class ResponseErrorFactoryTests
 {
-  
     private IResponseErrorHandler _service;
 
     [SetUp]
