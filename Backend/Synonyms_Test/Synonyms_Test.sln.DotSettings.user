@@ -3,6 +3,7 @@
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::D9DD0010-E247-454C-9C65-42CDFAF97D40::net6.0::Synonyms_Test.Tests.SynonymControllerTests&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::FA177ED7-2C32-4C43-A537-CF209B3D7F2B::net6.0::Synonyms_Test.Core.Tests.EndPointFactoryTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::FA177ED7-2C32-4C43-A537-CF209B3D7F2B::net6.0::Synonyms_Test.Core.Tests.ResponseErrorFactoryTests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fb928c3d_002D3904_002D44a7_002Da250_002D901957ce0814/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetSynonyms_Test" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
