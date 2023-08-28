@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synonyms_Test.Tests", "..\S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synonyms_Test.Core.Tests", "..\Synonyms_Test.Core.Tests\Synonyms_Test.Core.Tests.csproj", "{FA177ED7-2C32-4C43-A537-CF209B3D7F2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synonyms_Test.Services.Tests", "..\Synonyms_Test.Services.Tests\Synonyms_Test.Services.Tests.csproj", "{885D64B0-AA97-4DD4-B1DC-C89F23E69F61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{FA177ED7-2C32-4C43-A537-CF209B3D7F2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA177ED7-2C32-4C43-A537-CF209B3D7F2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA177ED7-2C32-4C43-A537-CF209B3D7F2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{885D64B0-AA97-4DD4-B1DC-C89F23E69F61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{885D64B0-AA97-4DD4-B1DC-C89F23E69F61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{885D64B0-AA97-4DD4-B1DC-C89F23E69F61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{885D64B0-AA97-4DD4-B1DC-C89F23E69F61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

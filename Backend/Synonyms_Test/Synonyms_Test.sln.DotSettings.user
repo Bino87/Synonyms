@@ -1,18 +1,6 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=862ccab6_002D4e8f_002D463c_002D997a_002Dcfab0ceacff7/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="_" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8a70ba60_002D4ac5_002D401a_002D91ce_002Da1036fa8f273/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="SynonymServiceTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::D9DD0010-E247-454C-9C65-42CDFAF97D40::net6.0::Synonyms_Test.Tests.SynonymControllerTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::FA177ED7-2C32-4C43-A537-CF209B3D7F2B::net6.0::Synonyms_Test.Core.Tests.EndPointFactoryTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::FA177ED7-2C32-4C43-A537-CF209B3D7F2B::net6.0::Synonyms_Test.Core.Tests.ResponseErrorFactoryTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::FA177ED7-2C32-4C43-A537-CF209B3D7F2B::net6.0::Synonyms_Test.Core.Tests.ResponseFactoryTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::FA177ED7-2C32-4C43-A537-CF209B3D7F2B::net6.0::Synonyms_Test.Core.Tests.SettingTest&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::FA177ED7-2C32-4C43-A537-CF209B3D7F2B::net6.0::Synonyms_Test.Core.Tests.WordAdapterTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::FA177ED7-2C32-4C43-A537-CF209B3D7F2B::net6.0::Synonyms_Test.Core.Tests.WordValidatorTests.Validate_Fails_WhenInputContainsNonLetterCharacters&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::FA177ED7-2C32-4C43-A537-CF209B3D7F2B::net6.0::Synonyms_Test.Core.Tests.WordValidatorTests&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fb928c3d_002D3904_002D44a7_002Da250_002D901957ce0814/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetSynonyms_Test" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::31C2055A-060B-4383-B418-562C6CC74005::net6.0::Synonym_Test.Tests.SynonymControllerTests.GetSynonyms_Test&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::885D64B0-AA97-4DD4-B1DC-C89F23E69F61::net6.0::Synonyms_Test.Services.Tests.SynonymServiceTests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
