@@ -9,20 +9,22 @@ namespace Synonyms_Test.Core.Logging
         private const string Separator = ", ";
         private readonly ILogger _logger;
         private readonly IResponseErrorHandler _responseErrorHandler;
+        private readonly ITimeHandler _timeHandler;
         private readonly string _method;
         private readonly DateTime _timeStamp;
 
-        internal EndPointLogger(ILogger logger, IResponseErrorHandler responseErrorHandler, string method)
+        internal EndPointLogger(ILogger logger, IResponseErrorHandler responseErrorHandler, ITimeHandler timeHandler, string method)
         {
             _logger = logger;
             _responseErrorHandler = responseErrorHandler;
+            _timeHandler = timeHandler;
             _method = method;
-            _timeStamp = DateTime.UtcNow;
+            _timeStamp = _timeHandler.GetUtcNow();
         }
 
         public void Dispose()
         {
-            var timeStamp = DateTime.UtcNow;
+            var timeStamp = _timeHandler.GetUtcNow();
             var time = timeStamp - _timeStamp;
             var errorCodes = _responseErrorHandler.GetErrorCodes();
             var errorCodesMessage = errorCodes.Any() ? $"Error codes: {string.Join(Separator, errorCodes)}" : ErrorCodesMessage;

@@ -14,5 +14,6 @@ public static class IoC
         services.AddTransient<IWordValidator, WordValidator>();
         services.AddTransient<IResponseFactory, ResponseFactory>();
         services.AddScoped<IEndPointLoggerFactory, EndPointLoggerFactory>();
+        services.AddTransient<ITimeHandler, TimeHandler>();
     }
 }
