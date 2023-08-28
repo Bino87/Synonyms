@@ -7,7 +7,6 @@ namespace Synonyms_Test.Core.Tests;
 
 public class ResponseFactoryTests
 {
-
     private IResponseFactory _service;
     private IResponseErrorHandler _responseErrorHandler;
 
